@@ -1,0 +1,200 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.clearfix:after{
+  content:"\20";
+  display:block;
+  clear:both;
+}
+.clearfix{
+  *zoom:1;
+}
+em,i{
+  font-style: normal;
+}
+.App {
+  font-family: 'Avenir,Helvetica,Arial,sans-serif';
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #FFF;
+  top: 0;
+  left: 0;
+  font-size: .3rem;
+}
+.mt10{
+  margin-top: .1rem;
+}
+.mt20{
+  margin-top: .2rem;
+}
+.mt30{
+  margin-top: .3rem;
+}
+.mt40{
+  margin-top: .4rem;
+}
+.mt50{
+  margin-top: .5rem;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.router{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.outerPage-enter {
+  animation-name: fadeInRight;
+  animation-duration: .5s;
+  z-index: 10;
+}
+
+.outerPage-exit {
+  animation-name: fadeOutRight;
+  animation-duration: .5s;
+  animation-fill-mode: forwards; 
+  z-index: 8;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.AppMain{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.AppFoot{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  border-top: 1px solid rgba($color: #000000, $alpha: .15);
+  display: flex;
+  flex-direction: row;
+  background: #FFF;
+  z-index: 50;
+  .foot_nav{
+    flex: 1;
+    display: flex;
+    padding-top: .1rem;
+    justify-content: center;
+    .activ .navImg{
+      &::after{
+          color: #333;
+      }
+      // &.nav-1{
+      // background: url('./assets/img/nav_1_cur.png') no-repeat center center;
+      // background-size: 90% auto;
+      // }
+      // &.nav-2{
+      // background: url('./assets/img/nav_2_cur.png') no-repeat center center;
+      // background-size: 90% auto;
+      // }
+      // &.nav-3{
+      // background: url('./assets/img/nav_3_cur.png') no-repeat center center;
+      // background-size: 90% auto;
+      // }
+      // &.nav-4{
+      // background: url('./assets/img/nav_4_cur.png') no-repeat center center;
+      // background-size: 90% auto;
+      // }
+      // &.nav-5{
+      // background: url('./assets/img/nav_5_cur.png') no-repeat center center;
+      // background-size: 90% auto;
+      // }
+    }
+    .navImg{
+      width: .62rem;
+      height: .56rem;
+      position: relative;
+      &::after{
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: -.25rem;
+        font-size: .2rem;
+        display: block;
+        text-indent: 2px;
+        color: #999;
+      }
+      // &.nav-1{
+      //   background: url('./assets/img/nav_1.png') no-repeat center center;
+      //   background-size: 90% auto;
+      //   &::after{
+      //       content: '首页';
+      //   }
+      // }
+      // &.nav-2{
+      //   background: url('./assets/img/nav_2.png') no-repeat center center;
+      //   background-size: 90% auto;
+      //   &::after{
+      //       content: '点评';
+      //   }
+      // }
+      // &.nav-3{
+      //   background: url('./assets/img/nav_3.png') no-repeat center center;
+      //   background-size: 90% auto;
+      //   &::after{
+      //       content: '任务';
+      //   }
+      // }
+      // &.nav-4{
+      //   background: url('./assets/img/nav_4.png') no-repeat center center;
+      //   background-size: 90% auto;
+      //   &::after{
+      //       content: '记录';
+      //   }
+      // }
+      // &.nav-5{
+      //   background: url('./assets/img/nav_5.png') no-repeat center center;
+      //   background-size: 90% auto;
+      //   &::after{
+      //       content: '我的';
+      //   }
+      // }
+    }
+  }
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
