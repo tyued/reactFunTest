@@ -3,8 +3,11 @@ import './App.scss';
 import { SessionContext, sessionID } from './component/session'
 import Message from './component/message'
 import Test from './views/test'
-import { useState, useCallback } from 'react';
-import { Snackbar } from '@material-ui/core'
+import { useState, useCallback, useEffect } from 'react';
+import { Snackbar, Typography } from '@material-ui/core'
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
+
+import AddUser from './views/adduser'
 
 function App() {
     const sessObj = sessionID
@@ -20,6 +23,9 @@ function App() {
     //         }
     //     })
     // }
+
+
+
     const handleSetMessage = useCallback(
         (message) => {
             setMessage(()=>{
@@ -49,17 +55,27 @@ function App() {
          * 2、 Provider value如果是方法那么再其他组件中就可以直接控制最外层的State  例如：[message,setMessage] = useState 中就可以在任意组件中修改message的值
          * 
          *  */ 
-        <SessionContext.Provider value={sessObj}>
-            <Message.Provider value={handleSetMessage}>
-                <Snackbar
-                    open={!!message.message}
-                    autoHideDuration={2000}
-                    onClose={handleClose}
-                    message={message.message}
-                />
-                <Test></Test>
-            </Message.Provider>
-        </SessionContext.Provider>
+        <Router>
+            <SessionContext.Provider value={sessObj}>
+                <Message.Provider value={handleSetMessage}>
+                    <Snackbar
+                        open={!!message.message}
+                        autoHideDuration={2000}
+                        onClose={handleClose}
+                        message={message.message}
+                    />
+                    <Test></Test>
+                    <Switch>
+                        <Route exact path='/Typography'>
+                            <Typography variant='h3'>
+                                这里是啥
+                            </Typography>
+                        </Route>
+                        <Route exact path='/addUser' component={()=><AddUser/>}></Route>
+                    </Switch>
+                </Message.Provider>
+            </SessionContext.Provider>
+        </Router>
     );
 }
 
