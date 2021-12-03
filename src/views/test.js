@@ -8,12 +8,12 @@ export default function Test() {
     const [userName,setUserName] = useState('张三');
     
     const changeName = () => {
-        console.log('我这里按了按钮')
+        // console.log('我这里按了按钮')
         setUserName('李四')
         setMessage({message:'123456'})
     }
 
-    console.log(setSession,'setSession')
+    // console.log(setSession,'setSession')
     return (
         <div>
             姓名是：{userName}-----啦啦啦这里是test页面

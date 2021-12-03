@@ -4,6 +4,7 @@ import { SessionContext, sessionID } from './component/session'
 import Message from './component/message'
 import Test from './views/test'
 import { useState, useCallback } from 'react';
+import { Snackbar } from '@material-ui/core'
 
 function App() {
     const sessObj = sessionID
@@ -29,7 +30,19 @@ function App() {
         },
         [setMessage],
     )
-    console.log(message,'message')
+    const handleClose = useCallback(
+        () => {
+            setMessage(()=>{
+                return {
+                    message:'',
+                    messageType:''
+                }
+            })
+        },
+        [setMessage],
+    )
+
+    // console.log(message,'message')
     return (
         /**
          * 1、 Provider value如果是属性值那么其被包含的组件可以使用 useContent(xxx)需引入 就可以直接使用这个常量
@@ -38,6 +51,12 @@ function App() {
          *  */ 
         <SessionContext.Provider value={sessObj}>
             <Message.Provider value={handleSetMessage}>
+                <Snackbar
+                    open={!!message.message}
+                    autoHideDuration={2000}
+                    onClose={handleClose}
+                    message={message.message}
+                />
                 <Test></Test>
             </Message.Provider>
         </SessionContext.Provider>
