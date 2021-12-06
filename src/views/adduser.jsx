@@ -1,10 +1,14 @@
 import { Container, TextField, Box, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core'
 import React, { useState,useEffect } from 'react'
+import { useHistory } from 'react-router';
 
-export default function Adduser() {
+export default function Adduser({location}) {
     const [formData, setFormData] = useState({});
+    console.log(location,'adduser-page-location')
+    let history = useHistory();
 
     useEffect(() => {
+        console.log(history,'use以后的history')
         console.log("我这里进来了")
     });
 

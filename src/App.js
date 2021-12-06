@@ -3,6 +3,7 @@ import './App.scss';
 import { SessionContext, sessionID } from './component/session'
 import Message from './component/message'
 import Test from './views/test'
+import Timer from './views/timer'
 import { useState, useCallback, useEffect } from 'react';
 import { Snackbar, Typography } from '@material-ui/core'
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
@@ -64,6 +65,7 @@ function App() {
                         onClose={handleClose}
                         message={message.message}
                     />
+                    {/* <Timer></Timer> */}
                     <Test></Test>
                     <Switch>
                         <Route exact path='/Typography'>
@@ -71,7 +73,10 @@ function App() {
                                 这里是啥
                             </Typography>
                         </Route>
-                        <Route exact path='/addUser' component={()=><AddUser/>}></Route>
+                        {/* <Route exact path='/addUser' component={()=><AddUser/>}></Route> */}
+                        <Route exact path='/addUser' render={ (props) =>{
+                            return (<AddUser {...props}></AddUser>)
+                        }}></Route>
                     </Switch>
                 </Message.Provider>
             </SessionContext.Provider>
