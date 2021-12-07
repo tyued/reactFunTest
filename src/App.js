@@ -9,6 +9,7 @@ import { Snackbar, Typography } from '@material-ui/core'
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 
 import AddUser from './views/adduser'
+import Other from './views/other'
 
 function App() {
     const sessObj = sessionID
@@ -76,6 +77,10 @@ function App() {
                         {/* <Route exact path='/addUser' component={()=><AddUser/>}></Route> */}
                         <Route exact path='/addUser' render={ (props) =>{
                             return (<AddUser {...props}></AddUser>)
+                        }}></Route>
+
+                        <Route exact path='/other' render={ (props) =>{
+                            return (<Other {...props}></Other>)
                         }}></Route>
                     </Switch>
                 </Message.Provider>
